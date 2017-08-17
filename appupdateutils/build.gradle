@@ -39,7 +39,7 @@ publish {
     userOrg = 'wujinli'
     groupId = 'com.wjl.appupdate'
     artifactId = 'appupdateutil'
-    version = '1.0.0'
+    version = '1.0.2'
     description = '关于app更新'
     website = "https://github.com/WuJinLi/appupdate"
 }

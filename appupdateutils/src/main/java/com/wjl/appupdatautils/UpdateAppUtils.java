@@ -185,17 +185,24 @@ public class UpdateAppUtils {
                     case 1://sure
                         if (downloadBy == DOWNLOAD_BY_APP) {
                             //APP自身更新
-
+                            DownloadAppUtils.downloadForAutoInstall(activity, apkPath, "demo" +
+                                    ".apk", serverVersionName);
                         } else if (downloadBy == DOWNLOAD_BY_BROWSER) {
                             //app通过浏览器下载apk
+                            DownloadAppUtils.downloadForWebView(activity, apkPath);
                         }
                         break;
                     case 0://cancle
+                        if (isForce)activity.finish();
                         break;
                     default:
                         break;
                 }
             }
         });
+
+        confirmDialog.setContent("发现新版本:" + serverVersionName + "\n是否下载更新?");
+        confirmDialog.setCancelable(false);
+        confirmDialog.show();
     }
 }
